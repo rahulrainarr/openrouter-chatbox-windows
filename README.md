@@ -4,7 +4,7 @@ A lightweight Windows desktop chat client for [OpenRouter](https://openrouter.ai
 
 ## Download
 
-Download the Windows installer directly:
+Download the latest installer directly:
 
 [Download OpenRouter Chatbox for Windows](https://github.com/rahulrainarr/openrouter-chatbox-windows/raw/main/release-assets/OpenRouter-Chatbox-Setup-Windows.exe)
 

@@ -1,0 +1,1 @@
+Lightweight Windows desktop chat client for OpenRouter with local API-key storage, model selection, installer, uninstall support, and GitHub feedback.
