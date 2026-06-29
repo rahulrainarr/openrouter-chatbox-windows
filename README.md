@@ -1,68 +1,95 @@
-# OpenRouter Chatbox for Windows
+# OpenRouter Chatbox For Windows
 
-A lightweight Windows desktop chat client for [OpenRouter](https://openrouter.ai/). It installs as a normal Windows application and stores your API key locally on your laptop.
+## Executive Summary
 
-## Download
+OpenRouter Chatbox for Windows is a lightweight desktop AI chat client for OpenRouter. It provides a practical Windows-first interface for model selection, local API-key storage, attachments, and configurable chat behavior.
 
-Download the latest installer directly:
+## Business Value
+
+Many users need a simple local desktop client for testing OpenRouter models without building a full web application or exposing credentials through a shared browser environment. This project demonstrates practical AI product packaging, local settings management, installer support, and human-friendly model experimentation.
+
+## Key Features
+
+- Native Windows desktop application
+- OpenRouter API support with default `openrouter/auto` model selection
+- Searchable model list and preset model choices
+- Local API-key storage
+- Model switching during an active conversation
+- Attachment support for images, PDFs, text files, code files, CSV, JSON, XML, HTML, CSS, JavaScript, TypeScript, Python, C#, Java, SQL, and logs
+- Configurable temperature and system prompt
+- Desktop and Start Menu shortcuts
+- Windows uninstall support
+- In-app feedback path
+
+## Target Users
+
+- AI builders and technical users
+- Consultants testing model behavior
+- Windows users who prefer a desktop client
+- Developers comparing OpenRouter model options
+
+## Architecture Overview
+
+```text
+Windows Desktop App
+|
+Chat UI / Settings / Attachment Handling
+|
+OpenRouter API Client
+|
+Selected Model Provider
+|
+Local Settings Storage
+```
+
+## Technology Stack
+
+- C#
+- Windows Forms
+- .NET Framework compiler included with Windows
+- OpenRouter API
+- Local `%APPDATA%` settings storage
+
+## Installation
+
+Download the latest installer:
 
 [Download OpenRouter Chatbox for Windows](https://github.com/rahulrainarr/openrouter-chatbox-windows/raw/main/release-assets/OpenRouter-Chatbox-Setup-Windows.exe)
 
-## Features
-
-- Native Windows desktop application
-- OpenRouter API support
-- Default `openrouter/auto` model selection
-- Searchable OpenRouter model list
-- Preset model choices with locally stored API keys
-- Switch models during an active chat while preserving conversation context
-- Attach local images, PDFs, text files, and common code files
-- Configurable temperature and system prompt
-- Locally stored API key
-- Desktop and Start Menu shortcuts
-- Windows uninstall support
-- In-app feedback button
-
-## Install
-
 1. Download `OpenRouter-Chatbox-Setup-Windows.exe`.
 2. Double-click the installer.
-3. Click `OK` when the installer asks for confirmation.
+3. Confirm installation when prompted.
 4. Launch the app from the Desktop shortcut or Start Menu.
-5. Paste your OpenRouter API key and click `Save settings`.
-
-## Attachments
-
-Use `Attach files` before sending a message.
-
-- Images are sent as local base64 image inputs to vision-capable models.
-- PDFs are sent as local base64 PDF file inputs.
-- Text, Markdown, CSV, JSON, XML, HTML, CSS, JavaScript, TypeScript, Python, C#, Java, SQL, and log files are added to the text context.
-- Files are limited to 10 MB each.
-
-## Model Switching
-
-Choose another model from the model field at any time during a conversation. The full conversation context, including prior attachments, is sent to the newly selected model.
-
-API keys are stored locally per selected model. OpenRouter normally uses one API key across its catalog, but separate locally stored values are supported when you want to maintain different keys.
+5. Paste your OpenRouter API key and save settings.
 
 The installer is not digitally signed. Windows SmartScreen may show a warning.
 
-## Feedback
+## Usage
 
-Use the in-app `Send feedback` button or [open a GitHub issue](https://github.com/rahulrainarr/openrouter-chatbox-windows/issues/new?template=feedback.md).
+1. Select or search for a model.
+2. Configure temperature or system prompt if needed.
+3. Attach files when useful.
+4. Send a message and review the response.
+5. Switch models during a conversation to compare behavior.
 
-## Local Data
+## Example Outputs
 
-The app stores settings at:
+- Chat conversation with selected OpenRouter model
+- Model comparison workflow
+- Attachment-assisted prompt response
+- Configured local settings profile
+
+## Security And Privacy
+
+Your API key remains on your laptop in local app settings. Chat requests and attachments are sent to OpenRouter and the selected downstream model provider according to their terms and privacy practices. Do not attach confidential files unless you have reviewed the provider path and data-handling assumptions.
+
+Local settings path:
 
 ```text
 %APPDATA%\OpenRouterChatbox\settings.json
 ```
 
 ## Build
-
-The application uses Windows Forms and the .NET Framework C# compiler included with Windows.
 
 ```powershell
 & 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe' `
@@ -76,9 +103,21 @@ The application uses Windows Forms and the .NET Framework C# compiler included w
   src\Program.cs
 ```
 
-## Privacy
+## Current Status
 
-Your API key remains on your laptop. Chat requests are sent directly to OpenRouter.
+Portfolio app / usable Windows utility.
+
+## Roadmap
+
+- Add screenshots of the main chat and settings screens
+- Add signed release option if distribution expands
+- Add clearer provider/data-routing notes
+- Add regression smoke checks for installer and settings behavior
+- Add release checklist for future versions
+
+## Disclaimer
+
+This is personal portfolio software unless otherwise stated. Review API provider terms, data-handling policies, and security requirements before using it with sensitive or enterprise data.
 
 ## License
 
